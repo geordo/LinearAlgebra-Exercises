@@ -1,0 +1,42 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{vietnam}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{fancyhdr} % Header and footer formatting
+
+\setmainfont{Times New Roman}
+
+\hypersetup{
+	colorlinks = true,
+	linkcolor = blue,
+	citecolor = red,
+	urlcolor = teal}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{18pt}
+
+% Header and footer information
+\lhead{\emph{Đậu Đức Đạt}}
+\chead{}
+\rhead{Toán Cao Cấp Đại Số Tuyến Tính}
+\lfoot{}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+\rfoot{}
+
+\begin{document}
+
+\section*{Chương 2: Ma trận - Định thức}
+
+Exercise 1. Cho $A = \begin{bmatrix}
+	1 & 3 \\ -1 & 2 \\ 3 & 4
+\end{bmatrix}, B = \begin{bmatrix} 0 & 3 & -2 \\ 1 & 2 & 3 \end{bmatrix}$. 
+Tính $A - 3B^T$.
+
+
+\end{document}
