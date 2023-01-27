@@ -1,4 +1,5 @@
 \documentclass[12pt]{report}
+\usepackage[margin = 1in]{geometry}
 
 \usepackage[utf8]{vietnam}
 \usepackage{fontspec}
@@ -7,6 +8,16 @@
 \usepackage{lastpage}
 \usepackage{hyperref}
 \usepackage{fancyhdr} % Header and footer formatting
+
+\usepackage{unicode-math}
+
+% https://github.com/EntropyIncreaser/RTFG-Exercises
+\setmathfont
+	[Extension = .otf,
+	math-style= TeX,
+	BoldFont = XITSMath-Bold.otf,
+	BoldItalicFont = XITS-BoldItalic.otf
+]{XITSMath-Regular}
 
 \setmainfont{Times New Roman}
 
@@ -17,26 +28,102 @@
 	urlcolor = teal}
 
 \pagestyle{fancy}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\setlength{\headheight}{18pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\setlength{\headheight}{20pt}
 
 % Header and footer information
 \lhead{\emph{Đậu Đức Đạt}}
 \chead{}
 \rhead{Toán Cao Cấp Đại Số Tuyến Tính}
 \lfoot{}
-\cfoot{Page \thepage\ of \pageref{LastPage}}
+%\cfoot{Page \thepage\ of \ \pageref{LastPage}}
+\cfoot{Trang \thepage}
 \rfoot{}
 
 \begin{document}
 
 \section*{Chương 2: Ma trận - Định thức}
 
-Exercise 1. Cho $A = \begin{bmatrix}
+\textbf{Bài 1.} 
+Cho $A = \begin{bmatrix}
 	1 & 3 \\ -1 & 2 \\ 3 & 4
-\end{bmatrix}, B = \begin{bmatrix} 0 & 3 & -2 \\ 1 & 2 & 3 \end{bmatrix}$. 
-Tính $A - 3B^T$.
-
+	\end{bmatrix}, B = \begin{bmatrix} 
+	0 & 3 & -2 \\ 1 & 2 & 3 \end{bmatrix}$. 
+Tính $A - 3B^T$.\\
+\textbf{Bài giải.}
+ $A - 3B^T = \begin{bmatrix}
+	1 & 3 \\ -1 & 2 \\ 3 & 4 
+	\end{bmatrix} - 3\begin{bmatrix} 
+	0 & 1 \\ 3 & 2 \\ -2 & 3 
+	\end{bmatrix} = \begin{bmatrix}
+	1 & 0 \\ -10 & -4 \\ 9 & -5 
+	\end{bmatrix}$\\ \\
+\textbf{Bài 2.} Các ma trận sau, ma trận nào nhân được với nhau. Hãy nhân các ma trận nếu được\\ 
+$A = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix}; 
+	B = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix};
+	C = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix};
+	D = \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix}$\\ \\
+\textbf{Bài giải.}\\
+\textbf{Quy tắc:} $A_{m,q}B_{q,n}=C_{m,n}$ (Số cột ma trận $A$ = số hàng ma trận $B$)\\
+\textbf{Lưu ý:} Phép nhân ma trận không có tính chất hoán vị nên $AB \neq BA$\\
+$AC = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 7 & 9\end{bmatrix}\\$
+$AD = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} = \begin{bmatrix} -4 \\ 4\end{bmatrix}\\$
+$BC = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} = \begin{bmatrix} 7 & 10 \\ 2 & 3 \end{bmatrix}\\$
+$BD = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} = \begin{bmatrix} -1 \\ -1 \end{bmatrix}\\$
+$CA = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 0 & 2 \\ 5 & -1 & 5 \\ 8 & -1 & 7 \end{bmatrix}\\$
+$CB = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} = \begin{bmatrix} 4 & 3 & 1 \\ 5 & 4 & 1 \\ 9 & 7 & 2 \end{bmatrix}\\$\\
+\\ \textbf{Bài 3.}Tìm $f(A)$ với $f(x) = x^2 - 5x + 3$ và $A = \begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix}$\\
+\\ \textbf{Bài 4.} Cho $A = \begin{bmatrix} a & 1 & 0 \\ 0 & a & 1 \\ 0 & 0 & a \end{bmatrix}$. Tìm $A^{1000}$.\\
+\\ \textbf{Bài 5.} Cho $A = \begin{bmatrix} 2 & 1 & 1 \\ 3 & 1 & 0 \\ 0 & 1 & 2 \end{bmatrix}$. Tìm $A^2, A^{-1}, A^{-2}$.\\
+\\ \textbf{Bài 6.} Tính các định thức\\
+$a)\begin{vmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{vmatrix}$\\
+$b)\begin{vmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 3 & 6 \end{vmatrix}$\\
+$c)\begin{vmatrix} 3 & 1 & 1 & 1 \\ 1 & 3 & 1 & 1 \\ 1 & 1 & 3 & 1 \\ 1 & 1 & 1 & 3 \end{vmatrix}$\\
+$d)\begin{vmatrix} 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 1 \\ 3 & 4 & 1 & 2 \\ 4 & 1 & 2 & 3 \end{vmatrix}$\\
+$e)\begin{vmatrix} a+b & c & 1 \\ b+c & a & 1 \\ c+a & b & 1 \end{vmatrix}$\\
+$f)\begin{vmatrix} 246 & 427 & 327 \\ 1014 & 543 & 441 \\ -342 & 721 & 621 \end{vmatrix}$\\
+$g)\begin{vmatrix} 3 & 4 & 0.347 & 7 \\ 6 & 2 & 0.628 & 8 \\ 4 & 9 & 0.491 & 1 \\ 9 & 4 & 0.942 & 2 \end{vmatrix}$\\
+\\ \textbf{Bài 7.} Tính các định thức cấp n\\
+$a) \begin{vmatrix} 
+	a & x & \cdots & x \\ 
+	x & a & \cdots & x \\ 
+	\vdots & \vdots & \ddots & \vdots \\
+	x & x & \cdots & a
+\end{vmatrix}\\
+b) \begin{vmatrix} 
+	1 + a_1 & a_2 & \cdots & a_n \\ 
+	a_1 & 1 + a_2 & \cdots & a_n \\ 
+	\vdots & \vdots & \ddots & \vdots \\
+	a_1 & a_2 & \cdots & 1+a_n
+\end{vmatrix}$\\
+\\ \textbf{Bài 8.} Không tính định thức, chứng minh rằng:\\
+$a)\ \begin{vmatrix}
+	y+z & z+x & x+y \\
+	y_1+z_1 & z_1+x_1 & x_1+y_1 \\
+	y_2+z_2 & z_2+x_2 & x_2+y_2
+\end{vmatrix}
+= 2\begin{vmatrix}
+	x & y & z \\
+	x_1 & y_1 & z_1 \\
+	x_2 & y_2 & z_2
+\end{vmatrix}$\\
+$b)\ \begin{vmatrix}
+	1 & a & a^3 \\
+	1 & b & b^3 \\
+	1 & c & c^3
+\end{vmatrix}
+= (b-a)(c-a)(c-b)(a+b+c)$\\
+$c)\ \begin{vmatrix}
+	a_1+b_1x & a_1x+b_1 & c_1 \\
+	a_2+b_2x & a_2x+b_2 & c_2 \\
+	a_3+b_3x & a_3x+b_3 & c_3
+\end{vmatrix}
+= (1-x^2)
+\begin{vmatrix}
+	a_1 & b_1 & c_1 \\
+	a_2 & b_2 & c_2 \\
+	a_3 & b_3 & c_3
+\end{vmatrix}$
 
 \end{document}
