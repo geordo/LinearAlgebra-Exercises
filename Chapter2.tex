@@ -1,5 +1,6 @@
 \documentclass[12pt]{report}
-\usepackage[margin = 1in]{geometry}
+% Can le
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
 \usepackage[utf8]{vietnam}
 \usepackage{fontspec}
@@ -10,6 +11,12 @@
 \usepackage{fancyhdr} % Header and footer formatting
 
 \usepackage{unicode-math}
+
+% Tat thut vao dau dong moi doan
+\setlength{\parindent}{0pt}
+% Khoang cach giua 2 doan
+\setlength{\parskip}{0.8em}
+%\renewcommand{\baselinestretch}{1.5}
 
 % https://github.com/EntropyIncreaser/RTFG-Exercises
 \setmathfont
@@ -33,9 +40,9 @@
 \setlength{\headheight}{20pt}
 
 % Header and footer information
-\lhead{\emph{Đậu Đức Đạt}}
+\lhead{\textit{Đậu Đức Đạt}}
 \chead{}
-\rhead{Toán Cao Cấp Đại Số Tuyến Tính}
+\rhead{\textbf{MathTeX - Toán Cao Cấp Đại Số Tuyến Tính}}
 \lfoot{}
 %\cfoot{Page \thepage\ of \ \pageref{LastPage}}
 \cfoot{Trang \thepage}
@@ -43,61 +50,100 @@
 
 \begin{document}
 
-\section*{Chương 2: Ma trận - Định thức}
+%\section*{Chương 2: Ma trận - Định thức}
+
+{\huge \textbf{Chương 2: Ma trận - Định thức}}
 
 \textbf{Bài 1.} 
 Cho $A = \begin{bmatrix}
 	1 & 3 \\ -1 & 2 \\ 3 & 4
 	\end{bmatrix}, B = \begin{bmatrix} 
 	0 & 3 & -2 \\ 1 & 2 & 3 \end{bmatrix}$. 
-Tính $A - 3B^T$.\\
+Tính $A - 3B^T$.
+
 \textbf{Bài giải.}
- $A - 3B^T = \begin{bmatrix}
+$A - 3B^T = \begin{bmatrix}
 	1 & 3 \\ -1 & 2 \\ 3 & 4 
 	\end{bmatrix} - 3\begin{bmatrix} 
 	0 & 1 \\ 3 & 2 \\ -2 & 3 
 	\end{bmatrix} = \begin{bmatrix}
 	1 & 0 \\ -10 & -4 \\ 9 & -5 
-	\end{bmatrix}$\\ \\
-\textbf{Bài 2.} Các ma trận sau, ma trận nào nhân được với nhau. Hãy nhân các ma trận nếu được\\ 
-$A = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix}; 
+	\end{bmatrix}$
+
+\textbf{Bài 2.} Các ma trận sau, ma trận nào nhân được với nhau. Hãy nhân các ma trận nếu được 
+\[ A = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix}; 
 	B = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix};
 	C = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix};
-	D = \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix}$\\ \\
-\textbf{Bài giải.}\\
+	D = \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} \]
+\textbf{Bài giải.}
+
 \textbf{Quy tắc:} $A_{m,q}B_{q,n}=C_{m,n}$ (Số cột ma trận $A$ = số hàng ma trận $B$)\\
-\textbf{Lưu ý:} Phép nhân ma trận không có tính chất hoán vị nên $AB \neq BA$\\
-$AC = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 7 & 9\end{bmatrix}\\$
-$AD = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} = \begin{bmatrix} -4 \\ 4\end{bmatrix}\\$
-$BC = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} = \begin{bmatrix} 7 & 10 \\ 2 & 3 \end{bmatrix}\\$
-$BD = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} = \begin{bmatrix} -1 \\ -1 \end{bmatrix}\\$
-$CA = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 0 & 2 \\ 5 & -1 & 5 \\ 8 & -1 & 7 \end{bmatrix}\\$
-$CB = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} = \begin{bmatrix} 4 & 3 & 1 \\ 5 & 4 & 1 \\ 9 & 7 & 2 \end{bmatrix}\\$\\
-\\ \textbf{Bài 3.}Tìm $f(A)$ với $f(x) = x^2 - 5x + 3$ và $A = \begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix}$\\
-\\ \textbf{Bài 4.} Cho $A = \begin{bmatrix} a & 1 & 0 \\ 0 & a & 1 \\ 0 & 0 & a \end{bmatrix}$. Tìm $A^{1000}$.\\
-\\ \textbf{Bài 5.} Cho $A = \begin{bmatrix} 2 & 1 & 1 \\ 3 & 1 & 0 \\ 0 & 1 & 2 \end{bmatrix}$. Tìm $A^2, A^{-1}, A^{-2}$.\\
-\\ \textbf{Bài 6.} Tính các định thức\\
-$a)\begin{vmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{vmatrix}$\\
-$b)\begin{vmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 3 & 6 \end{vmatrix}$\\
-$c)\begin{vmatrix} 3 & 1 & 1 & 1 \\ 1 & 3 & 1 & 1 \\ 1 & 1 & 3 & 1 \\ 1 & 1 & 1 & 3 \end{vmatrix}$\\
-$d)\begin{vmatrix} 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 1 \\ 3 & 4 & 1 & 2 \\ 4 & 1 & 2 & 3 \end{vmatrix}$\\
-$e)\begin{vmatrix} a+b & c & 1 \\ b+c & a & 1 \\ c+a & b & 1 \end{vmatrix}$\\
-$f)\begin{vmatrix} 246 & 427 & 327 \\ 1014 & 543 & 441 \\ -342 & 721 & 621 \end{vmatrix}$\\
-$g)\begin{vmatrix} 3 & 4 & 0.347 & 7 \\ 6 & 2 & 0.628 & 8 \\ 4 & 9 & 0.491 & 1 \\ 9 & 4 & 0.942 & 2 \end{vmatrix}$\\
-\\ \textbf{Bài 7.} Tính các định thức cấp n\\
+\textbf{Lưu ý:} Phép nhân ma trận không có tính chất hoán vị nên $AB \neq BA$
+
+$AC = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 7 & 9\end{bmatrix}$
+
+$AD = \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} = \begin{bmatrix} -4 \\ 4\end{bmatrix}$
+
+$BC = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} = \begin{bmatrix} 7 & 10 \\ 2 & 3 \end{bmatrix}$
+
+$BD = \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} = \begin{bmatrix} -1 \\ -1 \end{bmatrix}$
+
+$CA = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 1 & 1 & - 1 \\ 2 & -1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 0 & 2 \\ 5 & -1 & 5 \\ 8 & -1 & 7 \end{bmatrix}$
+
+$CB = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 3 & 2 & 1 \\ 1 & 1 & 0 \end{bmatrix} = \begin{bmatrix} 4 & 3 & 1 \\ 5 & 4 & 1 \\ 9 & 7 & 2 \end{bmatrix}$
+
+\textbf{Bài 3.}Tìm $f(A)$ với $f(x) = x^2 - 5x + 3$ và $A = \begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix}$ \newpage
+
+\textbf{Bài giải.}
+
+$A^2 = \begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix} \begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix} = \begin{bmatrix} 4 & -4 \\ -12 & 12 \end{bmatrix}$
+
+$5A = 5\begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix} = \begin{bmatrix} 5 & -5 \\ -15 & 15 \end{bmatrix}$
+
+$3I = 3\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} = \begin{bmatrix} 3 & 3 \\ 3 & 3 \end{bmatrix}$
+
+$f(A) = A^2 - 5A + 3I = \begin{bmatrix} 4 & -4 \\ -12 & 12 \end{bmatrix} - \begin{bmatrix} 5 & -5 \\ -15 & 15 \end{bmatrix} + \begin{bmatrix} 3 & 3 \\ 3 & 3 \end{bmatrix} = \begin{bmatrix} 2 & 4 \\ 6 & 0 \end{bmatrix}$
+
+\textbf{Bài 4.} Cho $A = \begin{bmatrix} a & 1 & 0 \\ 0 & a & 1 \\ 0 & 0 & a \end{bmatrix}$. Tìm $A^{1000}$.
+
+\textbf{Bài 5.} Cho $A = \begin{bmatrix} 2 & 1 & 1 \\ 3 & 1 & 0 \\ 0 & 1 & 2 \end{bmatrix}$. Tìm $A^2, A^{-1}, A^{-2}$.
+
+\textbf{Bài 6.} Tính các định thức
+
+$a)\ \begin{vmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{vmatrix} = (0 + 1 + 1) - (0 + 0 + 0) = 2$
+
+$b)\ \begin{vmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 3 & 6 \end{vmatrix} = (12 + 3 + 3) - (2 + 9 + 6) = 1$
+
+$c)\ \begin{vmatrix} 3 & 1 & 1 & 1 \\ 1 & 3 & 1 & 1 \\ 1 & 1 & 3 & 1 \\ 1 & 1 & 1 & 3 \end{vmatrix} = 6\begin{vmatrix} 1 & 1 & 1 & 1 \\ 1 & 3 & 1 & 1 \\ 1 & 1 & 3 & 1 \\ 1 & 1 & 1 & 3 \end{vmatrix}(h_1 + h_2 + h_3 + h_ 4 \to h_1)$
+
+$= 6\begin{vmatrix} 1 & 1 & 1 & 1 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 2 \end{vmatrix}(-h_1 + h_i \to h_i, i=\overline{2,4}) = 6*1*2*2*2 = 48$
+
+$d)\ \begin{vmatrix} 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 1 \\ 3 & 4 & 1 & 2 \\ 4 & 1 & 2 & 3 \end{vmatrix}$
+
+$e)\ \begin{vmatrix} a+b & c & 1 \\ b+c & a & 1 \\ c+a & b & 1 \end{vmatrix} = (a + b + c)\begin{vmatrix} 1 & c & 1 \\ 1 & a & 1 \\ 1 & b & 1 \end{vmatrix}(c_2 + c_1 \to c_1) = 0$
+
+$f)\ \begin{vmatrix} 246 & 427 & 327 \\ 1014 & 543 & 441 \\ -342 & 721 & 621 \end{vmatrix}$
+
+$g)\ \begin{vmatrix} 3 & 4 & 0.347 & 7 \\ 6 & 2 & 0.628 & 8 \\ 4 & 9 & 0.491 & 1 \\ 9 & 4 & 0.942 & 2 \end{vmatrix}$
+
+\textbf{Bài 7.} Tính các định thức cấp n
+
 $a) \begin{vmatrix} 
 	a & x & \cdots & x \\ 
 	x & a & \cdots & x \\ 
 	\vdots & \vdots & \ddots & \vdots \\
 	x & x & \cdots & a
-\end{vmatrix}\\
-b) \begin{vmatrix} 
+\end{vmatrix}$
+
+$b) \begin{vmatrix} 
 	1 + a_1 & a_2 & \cdots & a_n \\ 
 	a_1 & 1 + a_2 & \cdots & a_n \\ 
 	\vdots & \vdots & \ddots & \vdots \\
 	a_1 & a_2 & \cdots & 1+a_n
-\end{vmatrix}$\\
-\\ \textbf{Bài 8.} Không tính định thức, chứng minh rằng:\\
+\end{vmatrix}$
+
+\textbf{Bài 8.} Không tính định thức, chứng minh rằng:
+
 $a)\ \begin{vmatrix}
 	y+z & z+x & x+y \\
 	y_1+z_1 & z_1+x_1 & x_1+y_1 \\
@@ -107,13 +153,88 @@ $a)\ \begin{vmatrix}
 	x & y & z \\
 	x_1 & y_1 & z_1 \\
 	x_2 & y_2 & z_2
-\end{vmatrix}$\\
+\end{vmatrix}$
+
+\textbf{Bài giải. }
+$\begin{vmatrix}
+	y+z & z+x & x+y \\
+	y_1+z_1 & z_1+x_1 & x_1+y_1 \\
+	y_2+z_2 & z_2+x_2 & x_2+y_2
+\end{vmatrix} = \begin{vmatrix}
+	y & z & x \\
+	y_1 & z_1 & x_1 \\
+	y_2 & z_2 & x_2
+\end{vmatrix} + \begin{vmatrix}
+	z & x & y \\
+	z_1 & x_1 & y_1 \\
+	z_2 & x_2 & y_2
+\end{vmatrix}$
+
+$= \begin{vmatrix}
+	x & y & z \\
+	x_1 & y_1 & z_1 \\
+	x_2 & y_2 & z_2
+\end{vmatrix} + \begin{vmatrix}
+	x & y & z \\
+	x_1 & y_1 & z_1 \\
+	x_2 & y_2 & z_2
+\end{vmatrix} \left( \begin{smallmatrix}
+	c_1 \iff c_3 \\ c_2 \iff c_3
+\end{smallmatrix} \right) = 2 \begin{vmatrix}
+	x & y & z \\
+	x_1 & y_1 & z_1 \\
+	x_2 & y_2 & z_2
+\end{vmatrix}$ \textbf{(ĐPCM)}
+
 $b)\ \begin{vmatrix}
 	1 & a & a^3 \\
 	1 & b & b^3 \\
 	1 & c & c^3
 \end{vmatrix}
-= (b-a)(c-a)(c-b)(a+b+c)$\\
+= (b-a)(c-a)(c-b)(a+b+c)$
+
+% https://math.stackexchange.com/questions/1379045/how-to-factor-intricate-polynomial-ab3-a3b-a3c-ac3-bc3-b3c
+\textbf{Bài giải (Cách 1). }$\begin{vmatrix}
+	1 & a & a^3 \\
+	1 & b & b^3 \\
+	1 & c & c^3
+\end{vmatrix} = (bc^3+ca^3+ab^3) - (a^3b+b^3c+ac^3) = $
+
+\textbf{Bài giải (Cách 2). }
+
+$\begin{vmatrix}
+	1 & a & a^3 \\
+	1 & b & b^3 \\
+	1 & c & c^3
+\end{vmatrix} = \begin{vmatrix}
+1 & a & a^3 + a(ab + ac + bc) - abc\\
+1 & b & b^3 + b(ab + ac + bc) - abc\\
+1 & c & c^3 + c(ab + ac + bc) - abc
+\end{vmatrix} \left( \begin{smallmatrix}
+(-abc)c_1 + c_3 &\to c_3\\
+(ab + ac + bc)c_2 + c_3 &\to c_3 
+\end{smallmatrix}\right) = (a + b + c)\begin{vmatrix}
+1 & a & a^2 \\
+1 & b & b^2 \\
+1 & c & c^2
+\end{vmatrix}$
+
+Dễ thấy $\begin{vmatrix}
+1 & a & a^2 \\
+1 & b & b^2 \\
+1 & c & c^2
+\end{vmatrix}$ là \textbf{định thức Vandermode} với $n = 3 \Rightarrow \begin{vmatrix}
+1 & a & a^2 \\
+1 & b & b^2 \\
+1 & c & c^2
+\end{vmatrix} = (a-b)(a-c)(c-b)$
+
+$\Rightarrow \begin{vmatrix}
+1 & a & a^3 \\
+1 & b & b^3 \\
+1 & c & c^3
+\end{vmatrix} = (b-a)(c-a)(c-b)(a+b+c)$ \textbf{(ĐPCM)}
+
 $c)\ \begin{vmatrix}
 	a_1+b_1x & a_1x+b_1 & c_1 \\
 	a_2+b_2x & a_2x+b_2 & c_2 \\
