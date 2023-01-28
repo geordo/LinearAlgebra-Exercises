@@ -1,0 +1,134 @@
+\documentclass[12pt]{report}
+% Can le
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage[utf8]{vietnam}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{fancyhdr} % Header and footer formatting
+
+\usepackage{unicode-math}
+
+% Tat thut vao dau dong moi doan
+\setlength{\parindent}{0pt}
+% Khoang cach giua 2 doan
+\setlength{\parskip}{0.8em}
+%\renewcommand{\baselinestretch}{1.5}
+
+% https://github.com/EntropyIncreaser/RTFG-Exercises
+\setmathfont
+[Extension = .otf,
+math-style= TeX,
+BoldFont = XITSMath-Bold.otf,
+BoldItalicFont = XITS-BoldItalic.otf
+]{XITSMath-Regular}
+
+\setmainfont{Times New Roman}
+
+\hypersetup{
+	colorlinks = true,
+	linkcolor = blue,
+	citecolor = red,
+	urlcolor = teal}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\setlength{\headheight}{20pt}
+
+% Header and footer information
+\lhead{\textit{Đậu Đức Đạt}}
+\chead{}
+\rhead{}
+\lfoot{}
+%\cfoot{Page \thepage\ of \ \pageref{LastPage}}
+\cfoot{Trang \thepage}
+\rfoot{}
+
+\begin{document}
+	
+{\huge \textbf{Bài tập về nhà}}
+
+\textbf{Bài 10.} Tính các định thức sau
+
+a) $\begin{vmatrix}
+a+b & a-b \\
+a-b & a+b
+\end{vmatrix} = (a+b)^2 - (a-b)^2 = 4ab$
+
+b) $\begin{vmatrix}
+\cos \varphi & -\sin \varphi \\
+\sin \varphi & \cos \varphi
+\end{vmatrix} = \cos ^ 2 \varphi + \sin ^ 2 \varphi = 1$
+
+c) $\begin{vmatrix}
+a+ ib & b \\
+2a & a-ib
+\end{vmatrix} = (a+ib)(a-ib) - 2ab = a^2 + b^2 - 2ab = (a-b)^2$ 
+
+d) $\begin{vmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{vmatrix} = \begin{vmatrix}
+1 & 1 & 2 \\
+4 & 1 & 2 \\
+7 & 1 & 2
+\end{vmatrix} \left( \begin{smallmatrix}
+-c_1 + c_2 &\to c_2 \\
+-2c_1 + c_3 &\to c_3
+\end{smallmatrix}\right) = 0$
+
+\textbf{Bài 17.} Tính các định thức sau
+
+c) $\begin{vmatrix}
+0 & b & c & d \\
+b & 0 & d & c \\
+c & d & 0 & b \\
+d & c & b & 0 \\
+\end{vmatrix}$
+
+\textbf{Cách 1.} Khai triển Laplace theo cột 1, ta có:
+
+$det(A) = b.A_{2,1} + c.A_{3,1} + d.A_{4,1} = -b\begin{vmatrix}
+b & c & d \\
+d & 0 & b \\
+c & b & 0
+\end{vmatrix} + c\begin{vmatrix}
+b & c & d \\
+0 & d & c \\
+c & b & 0
+\end{vmatrix} - d\begin{vmatrix}
+b & c & d \\
+0 & d & c \\
+d & 0 & b
+\end{vmatrix}$
+
+$= -b\left(c^2b+d^2b-b^3\right) + c\left(c^3-d^2c-b^2c\right) -d\left(b^2d+c^2d-d^3\right) = b^4+c^4+d^4-2b^2c^2-2c^2d^2-2d^2b^2$	
+
+$= b^4+c^4-2b^2c^2-b^2d^2-c^2d^2-2bcd^2-b^2d^2-c^2d^2+2bcd^2+d^4 = \left(b^2-c^2\right)^2-\left(b+c\right)^2d^2-\left(b-c\right)^2d^2+d^4 = \left(b^2-c^2\right)^2d^2 - \left(b^2+c^2\right)^2d^2 - (b-c)^2d^2+d^4 = \lbrack (b+c)^2-d^2 \rbrack \lbrack (b-c)^2-d^2 \rbrack$
+
+$= (b+c-d)(b+c+d)(b-c-d)(b-c+d)$
+
+\textbf{Cách 2.} Đặt $P(x) = \begin{vmatrix}
+-x & b & c & d \\
+b & -x & d & c \\
+c & d & -x & b \\
+d & c & b & -x \\
+\end{vmatrix}$, thì $P(x)$ là một đa thức bậc 4 có số hạng với lũy thừa cao nhất là $x^4$
+
+$P(x) = \begin{vmatrix}
+b+c+d-x & b+c+d-x & b+c+d-x & b+c+d-x \\
+b & 0 & d & c \\
+c & d & 0 & b \\
+d & c & b & 0 \\
+\end{vmatrix} (h_2+h_3+h_4+h_1 \to h_1)$
+
+$\Rightarrow P(b+c+d) = 0$
+
+
+
+\end{document}
