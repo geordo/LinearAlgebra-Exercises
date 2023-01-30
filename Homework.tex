@@ -133,11 +133,41 @@ a) $\begin{vmatrix}
 	x+6 & x+7 & x+8
 \end{vmatrix} = 0$
 
+\textbf{Bài giải.}  
+
+$\begin{vmatrix}
+	x & x+1 & x+2 \\
+	x+3 & x+4 & x+5 \\
+	x+6 & x+7 & x+8
+\end{vmatrix} = 0 \Leftrightarrow \begin{vmatrix}
+x & 1 & 2 \\
+x+3 & 1 & 2 \\
+x+6 & 1 & 2
+\end{vmatrix} \left( \begin{smallmatrix} -c_1 + c_2 \to c_2 \\ -c_1+c_3 \to c_3 \end{smallmatrix} \right) = 0$
+
+Do $\begin{vmatrix}
+	x & 1 & 2 \\
+	x+3 & 1 & 2 \\
+	x+6 & 1 & 2
+\end{vmatrix} = 0\ \forall x \in R$, vậy nghiệm của phương trình là $R$.
+
 b) $\begin{vmatrix}
 	2 & x+2 & -1 \\
 	1 & 1 & -2 \\
 	5 & -3 & x
 \end{vmatrix} \geq 0$
+
+\textbf{Bài giải.} 
+
+$\begin{vmatrix}
+	2 & x+2 & -1 \\
+	1 & 1 & -2 \\
+	5 & -3 & x
+\end{vmatrix} \geq 0 \Leftrightarrow 2x+3-10(x+2)+5-12-x(x+2) \geq 0$
+
+$\Leftrightarrow -x^2 -10x - 24 \geq 0$ 
+
+$\Leftrightarrow -6 \leq x \leq -4$ 
 
 \textbf{Bài 12.} Chứng minh rằng: 
 
@@ -151,6 +181,34 @@ a) $\begin{vmatrix}
 	a_3 & b_3 & c_3 \\
 \end{vmatrix}$
 
+\textbf{Bài giải.} 
+
+$\begin{vmatrix}
+	a_1+b_1x & a_1x+b_1 & c_1 \\
+	a_2+b_2x & a_2x+b_2 & c_2 \\
+	a_3+b_3x & a_3x+b_3 & c_3 \\
+\end{vmatrix} = (1+x) \begin{vmatrix}
+a_1+b_1 & a_1x+b_1 & c_1 \\
+a_2+b_2 & a_2x+b_2 & c_2 \\
+a_3+b_3 & a_3x+b_3 & c_3 \\
+\end{vmatrix} (c_2+c_1 \to c_1)$
+
+$= (1+x)(x-1)\begin{vmatrix}
+	a_1+b_1 & a_1 & c_1 \\
+	a_2+b_2 & a_2 & c_2 \\
+	a_3+b_3 & a_3 & c_3 \\
+\end{vmatrix} (c_2 - c_1 \to c_2) = (1+x)(x-1) \begin{vmatrix}
+b_1 & a_1 & c_1 \\ 
+b_2 & a_2 & c_2 \\
+b_3 & a_3 & c_3 \\
+\end{vmatrix} (-c_2 +c_1 \to c_1)$
+
+$= (1-x^2) \begin{vmatrix}
+	a_1 & b_1 & c_1 \\ 
+	a_2 & b_2 & c_2 \\
+	a_3 & b_3 & c_3 \\
+\end{vmatrix} (c_1 \Leftrightarrow c_2)$ \textbf{ĐPCM}
+
 b) $\begin{vmatrix}
 	1 & a & a^3 \\
 	1 & b & b^3 \\
@@ -160,6 +218,24 @@ b) $\begin{vmatrix}
 	1 & b & b^2 \\
 	1 & b & c^2 \\
 \end{vmatrix}$
+
+\textbf{Bài giải.} 
+
+$\begin{vmatrix}
+	1 & a & a^3 \\
+	1 & b & b^3 \\
+	1 & b & c^3 \\
+\end{vmatrix} = \begin{vmatrix}
+1 & a & a^3 + a(ab+ac+bc) - abc \\
+1 & b & b^3 + b(ab+ac+bc) - abc \\
+1 & b & c^3 + c(ab+ac+bc) - abc \\
+\end{vmatrix} \left( \begin{smallmatrix}
+(-abc)c_1 + c_3 &\to c_3 \\ (ab+ac+bc)c_2 + c_3 &\to c_3
+\end{smallmatrix} \right) = (a+b+c) \begin{vmatrix}
+1 & a & a^2 \\
+1 & b & b^2 \\
+1 & b & c^2 \\
+\end{vmatrix}$ \textbf{ĐPCM}.
 
 \textbf{Bài 13.} Tính các định thức sau:
 
@@ -427,5 +503,7 @@ l) $\begin{vmatrix}
 \[ det \begin{pmatrix} A & B \\ C & D \end{pmatrix} = det(DA - CB) \]
 
 \textbf{Bài 22.} Chứng minh rằng nếu $A = (a_ij) \in M_n(K)$ và $B$ thoả điều kiện \[ a_{kk} > \displaystyle \sum_{\substack{s=1 \\ s \neq k}}^n |a_{ks}|, k = 1, 2, \cdots n \text{ thì } detA \neq 0 \]
+
+Xin chào các bạn
 
 \end{document}
