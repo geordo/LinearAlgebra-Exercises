@@ -100,11 +100,23 @@ $A^2 = \begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix} \begin{bmatrix} 1 & -1 \\ 
 
 $5A = 5\begin{bmatrix} 1 & -1 \\ -3 & 3 \end{bmatrix} = \begin{bmatrix} 5 & -5 \\ -15 & 15 \end{bmatrix}$
 
-$3I = 3\begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} = \begin{bmatrix} 3 & 3 \\ 3 & 3 \end{bmatrix}$
+$3I = 3\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}$
 
-$f(A) = A^2 - 5A + 3I = \begin{bmatrix} 4 & -4 \\ -12 & 12 \end{bmatrix} - \begin{bmatrix} 5 & -5 \\ -15 & 15 \end{bmatrix} + \begin{bmatrix} 3 & 3 \\ 3 & 3 \end{bmatrix} = \begin{bmatrix} 2 & 4 \\ 6 & 0 \end{bmatrix}$
+$f(A) = A^2 - 5A + 3I = \begin{bmatrix} 4 & -4 \\ -12 & 12 \end{bmatrix} - \begin{bmatrix} 5 & -5 \\ -15 & 15 \end{bmatrix} + \begin{bmatrix} 3 & 3 \\ 3 & 3 \end{bmatrix} = \begin{bmatrix} 2 & 1 \\ 3 & 0 \end{bmatrix}$
 
 \textbf{Bài 4.} Cho $A = \begin{bmatrix} a & 1 & 0 \\ 0 & a & 1 \\ 0 & 0 & a \end{bmatrix}$. Tìm $A^{1000}$.
+
+\textbf{Bài giải.} $A = \begin{bmatrix} a & 1 & 0 \\ 0 & a & 1 \\ 0 & 0 & a \end{bmatrix} = aI_3 + B$, với $B = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}$
+
+Nhận xét: $B^2 = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}; B^n = 0$  $(\forall n \geq 3)$
+
+$A^n = (aI_3+B)^n = \displaystyle\sum_{k=0}^{n} C_n^k B^k (aI_3)^{n-k} = C_n^0 B^0 (aI_3)^n + C_n^1 B^1 (aI_3)^{n-1} + C_n^2 B^2 (aI_3)^{n-2}$
+
+$= a^nI_3 +na^{n-1}B + C_n^2 a^{n-2} B^2$
+
+$= \begin{bmatrix} a^n & na^{n-1} & C_n^2a^{n-2} \\ 0 & a^n & na^{n-1} \\ 0 & 0 & a^n \end{bmatrix}$
+
+Quay lại bài toán, với $n = 1000, A^{1000} = \begin{bmatrix} a^{1000} & 1000a^{999} & C_{1000}^2 a^{998} \\[6pt] 0 & a^{1000} & 1000a^{999} \\[6pt] 0 & 0 & a^{1000} \end{bmatrix}$
 
 \textbf{Bài 5.} Cho $A = \begin{bmatrix} 2 & 1 & 1 \\ 3 & 1 & 0 \\ 0 & 1 & 2 \end{bmatrix}$. Tìm $A^2, A^{-1}, A^{-2}$.
 
@@ -136,23 +148,22 @@ $a) \begin{vmatrix}
 \end{vmatrix}$
 
 $b) \begin{vmatrix} 
-	1 + a_1 & a_2 & \cdots & a_n \\ 
-	a_1 & 1 + a_2 & \cdots & a_n \\ 
-	\vdots & \vdots & \ddots & \vdots \\
-	a_1 & a_2 & \cdots & 1+a_n
+1 + a_1 & a_2 & \cdots & a_n \\ 
+a_1 & 1 + a_2 & \cdots & a_n \\ 
+\vdots & \vdots & \ddots & \vdots \\
+a_1 & a_2 & \cdots & 1+a_n
 \end{vmatrix}$
 
 \textbf{Bài 8.} Không tính định thức, chứng minh rằng:
 
 $a)\ \begin{vmatrix}
-	y+z & z+x & x+y \\
-	y_1+z_1 & z_1+x_1 & x_1+y_1 \\
-	y_2+z_2 & z_2+x_2 & x_2+y_2
-\end{vmatrix}
-= 2\begin{vmatrix}
-	x & y & z \\
-	x_1 & y_1 & z_1 \\
-	x_2 & y_2 & z_2
+y+z & z+x & x+y \\
+y_1+z_1 & z_1+x_1 & x_1+y_1 \\
+y_2+z_2 & z_2+x_2 & x_2+y_2
+\end{vmatrix} = 2 \begin{vmatrix}
+x & y & z \\
+x_1 & y_1 & z_1 \\
+x_2 & y_2 & z_2
 \end{vmatrix}$
 
 \textbf{Bài giải. }
@@ -160,31 +171,23 @@ $\begin{vmatrix}
 	y+z & z+x & x+y \\
 	y_1+z_1 & z_1+x_1 & x_1+y_1 \\
 	y_2+z_2 & z_2+x_2 & x_2+y_2
-\end{vmatrix} = \begin{vmatrix}
-	y & z & x \\
-	y_1 & z_1 & x_1 \\
-	y_2 & z_2 & x_2
-\end{vmatrix} + \begin{vmatrix}
-	z & x & y \\
-	z_1 & x_1 & y_1 \\
-	z_2 & x_2 & y_2
-\end{vmatrix}$
+\end{vmatrix} = 2\begin{vmatrix}
+	x+y+z & z+x & x+y \\
+	x_1+y_1+z_1 & z_1+x_1 & x_1+y_1 \\
+	x_2+y_2+z_2 & z_2+x_2 & x_2+y_2
+\end{vmatrix} (c_2 + c_3 + c_1 \to c_1)$
 
-$= \begin{vmatrix}
-	x & y & z \\
-	x_1 & y_1 & z_1 \\
-	x_2 & y_2 & z_2
-\end{vmatrix} + \begin{vmatrix}
-	x & y & z \\
-	x_1 & y_1 & z_1 \\
-	x_2 & y_2 & z_2
+$= 2\begin{vmatrix}
+	x+y+z & y & z \\
+	x_1+y_1+z_1 & y_1 & z_1 \\
+	x_2+y_2+z_2 & y_2 & z_2
 \end{vmatrix} \left( \begin{smallmatrix}
-	c_1 \iff c_3 \\ c_2 \iff c_3
-\end{smallmatrix} \right) = 2 \begin{vmatrix}
-	x & y & z \\
-	x_1 & y_1 & z_1 \\
-	x_2 & y_2 & z_2
-\end{vmatrix}$ \textbf{(ĐPCM)}
+	-c_1+c_2 \to c_2 \\ -c_1+c_3 \to c_3
+\end{smallmatrix} \right) =2 \begin{vmatrix}
+x & y & z \\
+x_1 & y_1 & z_1 \\
+x_2 & y_2 & z_2
+\end{vmatrix} (-c_2 - c_3 + c_1 \to c_1)$ \textbf{(ĐPCM)}
 
 $b)\ \begin{vmatrix}
 	1 & a & a^3 \\
@@ -194,10 +197,12 @@ $b)\ \begin{vmatrix}
 = (b-a)(c-a)(c-b)(a+b+c)$
 
 % https://math.stackexchange.com/questions/1379045/how-to-factor-intricate-polynomial-ab3-a3b-a3c-ac3-bc3-b3c
-\textbf{Bài giải (Cách 1). }$\begin{vmatrix}
-	1 & a & a^3 \\
-	1 & b & b^3 \\
-	1 & c & c^3
+\textbf{Bài giải (Cách 1).}
+
+$\begin{vmatrix}
+1 & a & a^3 \\
+1 & b & b^3 \\
+1 & c & c^3
 \end{vmatrix} = (bc^3+ca^3+ab^3) - (a^3b+b^3c+ac^3) = $
 
 \textbf{Bài giải (Cách 2). }
@@ -207,32 +212,34 @@ $\begin{vmatrix}
 	1 & b & b^3 \\
 	1 & c & c^3
 \end{vmatrix} = \begin{vmatrix}
-1 & a & a^3 + a(ab + ac + bc) - abc\\
-1 & b & b^3 + b(ab + ac + bc) - abc\\
-1 & c & c^3 + c(ab + ac + bc) - abc
+	1 & a & a^3 + a(ab + ac + bc) - abc\\
+	1 & b & b^3 + b(ab + ac + bc) - abc\\
+	1 & c & c^3 + c(ab + ac + bc) - abc
 \end{vmatrix} \left( \begin{smallmatrix}
-(-abc)c_1 + c_3 &\to c_3\\
-(ab + ac + bc)c_2 + c_3 &\to c_3 
+	(-abc)c_1 + c_3 &\to c_3\\
+	(ab + ac + bc)c_2 + c_3 &\to c_3 
 \end{smallmatrix}\right) = (a + b + c)\begin{vmatrix}
-1 & a & a^2 \\
-1 & b & b^2 \\
-1 & c & c^2
+	1 & a & a^2 \\
+	1 & b & b^2 \\
+	1 & c & c^2
 \end{vmatrix}$
 
 Dễ thấy $\begin{vmatrix}
-1 & a & a^2 \\
-1 & b & b^2 \\
-1 & c & c^2
-\end{vmatrix}$ là \textbf{định thức Vandermode} với $n = 3 \Rightarrow \begin{vmatrix}
-1 & a & a^2 \\
-1 & b & b^2 \\
-1 & c & c^2
+	1 & 1 & 1 \\
+	a & b & c \\
+	a^2 & b^2 & c^2
+\end{vmatrix}$ là \textbf{định thức Vandermode} với $n = 3$ và $det(A) = det(A^T)$
+
+$\Rightarrow \begin{vmatrix}
+	1 & a & a^2 \\
+	1 & b & b^2 \\
+	1 & c & c^2
 \end{vmatrix} = (a-b)(a-c)(c-b)$
 
 $\Rightarrow \begin{vmatrix}
-1 & a & a^3 \\
-1 & b & b^3 \\
-1 & c & c^3
+	1 & a & a^3 \\
+	1 & b & b^3 \\
+	1 & c & c^3
 \end{vmatrix} = (b-a)(c-a)(c-b)(a+b+c)$ \textbf{(ĐPCM)}
 
 $c)\ \begin{vmatrix}
